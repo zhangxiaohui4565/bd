@@ -1,0 +1,31 @@
+# zk集群信息
+storm.zookeeper.servers:
+  - "10.161.1.3"
+  - "10.161.1.4"
+  - "10.161.1.5"
+  
+# 本地磁盘路径，存储本地信息  
+storm.local.dir: "/data/storm/status"
+
+# nimbus（master）节点信息
+nimbus.seeds: ["10.161.1.1,10.161.1.2"]
+
+# supervisor上能够运行workers的端口列表.每个worker占用一个端口,且每个端口只运行一个worker.
+# 通过这项配置可以调整每台机器上运行的worker总数
+supervisor.slots.ports:
+    - 6700
+    - 6701
+    - 6702
+
+# 健康检查设置
+storm.health.check.dir: "/data/storm/healthchecks"
+storm.health.check.timeout.ms: 5000  
+
+# 监控ui端口
+ui.port: 6060
+
+# back pressure
+topology.backpressure.enable: true
+backpressure.disruptor.high.watermark: 0.9
+backpressure.disruptor.low.watermark: 0.4
+

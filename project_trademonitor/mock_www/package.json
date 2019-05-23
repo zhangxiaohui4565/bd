@@ -1,0 +1,9 @@
+{
+  "name": "mock_www",
+  "version": "1.0.0",
+  "description": "模拟电商交易",
+  "dependencies": {
+    "mysql": "2.15.0",
+    "strip-json-comments": "2.0.1"
+  }
+}

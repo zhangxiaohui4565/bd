@@ -1,0 +1,76 @@
+-----------------------------------------------------------
+# mysql的默认安装目录
+-----------------------------------------------------------
+
+  配置文件： /etc/my.cnf
+
+  执行脚本： /usr/bin
+
+  数据及日志：/var/lib/mysql
+
+
+-----------------------------------------------------------
+# 查看binlog
+-----------------------------------------------------------
+
+  查看binlog文件的格式：show variables like 'binlog_format';
+
+  binlog文件列表：show binary logs; ／ show master logs;
+
+  当前binlog文件：show master status;
+
+  查看binlog文件内容(概要)：show binlog events in 'mysql-bin.000001';
+
+
+      show binlog events [IN 'log_name'] [FROM pos] [LIMIT [offset,] row_count];
+
+      选项解析：
+        IN 'log_name'   指定要查询的binlog文件名(不指定就是第一个binlog文件)
+        FROM pos        指定从哪个pos起始点开始查起(不指定就是从整个文件首个pos点开始算)
+        LIMIT [offset,] 偏移量(不指定就是0)
+        row_count       查询总条数(不指定就是所有行)
+
+      查询结果：
+         Log_name: mysql-bin.000021  ----------------------------------------------> 查询的binlog日志文件名
+              Pos: 11197 ----------------------------------------------------------> pos起始点:
+       Event_type: Query ----------------------------------------------------------> 事件类型：Query
+        Server_id: 1 --------------------------------------------------------------> 标识是由哪台服务器执行的
+      End_log_pos: 11308 ----------------------------------------------------------> pos结束点:11308(即：下行的pos起始点)
+             Info: use `zyyshop`; INSERT INTO `team2` VALUES (0,345,'asdf8er5') ---> 执行的sql语句
+
+
+                     
+   查看binlog文件内容(详细): mysqlbinlog  --base64-output=decode-rows -v  /var/lib/mysql/mysql-bin.000001
+
+
+-----------------------------------------------------------
+# binlog文件管理
+-----------------------------------------------------------
+
+ flush logs;     //生成新的binlog文件
+ reset master;   //删除master的binlog
+ reset slave;    //删除slave的中继日志
+
+ purge master logs before '2012-03-30 17:20:00';   //删除指定日期以前的日志索引中binlog日志文件
+ purge master logs to 'mysql-bin.000002';          //删除指定日志文件的日志索引中binlog日志文件
+
+
+-----------------------------------------------------------
+# 权限设置
+-----------------------------------------------------------
+
+ #canal
+ CREATE USER canal@'localhost' IDENTIFIED BY 'canal';
+ CREATE USER canal@'gp-bd-master01' IDENTIFIED BY 'canal';
+
+ GRANT SELECT, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'canal'@'localhost';
+ GRANT SELECT, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'canal'@'gp-bd-master01';
+
+
+ #wuchen
+ grant super,replication client on *.* to  wuchen;
+ grant replication slave on *.* to  wuchen;
+ grant reload on *.* to  wuchen; -- flush logs;
+
+ FLUSH PRIVILEGES;
+

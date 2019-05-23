@@ -1,0 +1,13 @@
+filebeat.prospectors:
+
+- input_type: log
+  paths:
+    - /var/logs/eos/*.elog
+    - /var/logs/eos/*.elog.*
+
+output.kafka:
+  enabled: true
+  hosts: ["10.250.113.172:9092"]
+  topic: eos-service-logs
+  compression: gzip
+  max_message_bytes: 1000000

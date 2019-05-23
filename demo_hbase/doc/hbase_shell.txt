@@ -1,0 +1,49 @@
+# 参数用单引号包裹,属性通过kv的形式来设置,kv之间用 => 连接
+
+# ddl
+create_namespace 'gp'
+
+create 'gp:test',{NUMREGIONS => 4, SPLITALGO => 'HexStringSplit'},{NAME=>'info',VERSIONS=>'3',COMPRESSION=>'SNAPPY'}
+
+desc 'gp:test'
+
+alter 'gp:test',{NAME=>'info',IN_MEMORY=>'true'}
+
+# put
+
+put 'gp:test','123','info:c1','v1'
+
+put 'gp:test','123','info:c1','v2',1
+
+# version
+scan 'gp:test',{COLUMNS => 'info:c1',VERSIONS => 10}
+
+
+# scan
+
+put 'gp:test','423','info:c1','v2'
+
+scan 'gp:test',{STARTROW=>'1',STOPROW=>'4'}
+
+
+# delete
+
+delete 'gp:test','123','info:c1',1528008275303
+
+scan 'gp:test',{STARTROW=>'1',STOPROW=>'4',RAW => true, VERSIONS => 10}
+
+# flush/compact
+
+flush 'gp:test'
+
+major_compact 'gp:test'
+
+# truncate
+
+truncate 'gp:test'
+
+disable 'gp:test'
+
+drop 'gp:test'
+
+drop_namespace 'gp'

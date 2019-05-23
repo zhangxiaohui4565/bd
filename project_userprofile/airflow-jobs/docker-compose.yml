@@ -1,0 +1,37 @@
+version: '2.1'
+services:
+    postgres:
+        image: postgres:9.6
+        environment:
+            - POSTGRES_USER=airflow
+            - POSTGRES_PASSWORD=airflow
+            - POSTGRES_DB=airflow
+
+    webserver:
+        image: puckel/docker-airflow:1.10.2
+        #restart: always
+        depends_on:
+            - postgres
+        environment:
+            - LOAD_EX=n
+            - EXECUTOR=Local
+            # - AIRFLOW__CORE__DEFAULT_TIMEZONE=Asia/Manila
+            - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
+            # For Airflow CLI
+            - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+            - AIRFLOW__CORE__FERNET_KEY=SmCQhqK1wrifxIsTIxSs3DcXm9lR9HPz15apaBnjF6M=
+            - AIRFLOW__SCHEDULER__MIN_FILE_PROCESS_INTERVAL=60
+        volumes:
+            - ./dags:/usr/local/airflow/dags
+            - ./sql:/usr/local/airflow/sql
+            - ./requirements.txt:/requirements.txt
+            # Uncomment to include custom plugins
+            # - ./plugins:/usr/local/airflow/plugins
+        ports:
+            - "8080:8080"
+        command: webserver
+        healthcheck:
+            test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
+            interval: 30s
+            timeout: 30s
+            retries: 3

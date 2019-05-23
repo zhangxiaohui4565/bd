@@ -1,0 +1,31 @@
+{
+	"mappings": {
+		"movie": {
+			"properties": {
+				"id": {
+					"type": "long"
+				},
+				"imdb_id": {
+					"type": "keyword",
+					"index": false
+				},
+				"name": {
+					"type": "text"
+				},
+				"year": {
+					"type": "integer"
+				},
+				"image_url": {
+					"type": "keyword",
+					"index": false
+				},
+				"tags": {
+					"type": "keyword"
+				}
+			},
+			"_all": {
+				"enabled": false
+			}
+		}
+	}
+}

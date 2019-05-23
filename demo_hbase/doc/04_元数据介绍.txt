@@ -1,0 +1,40 @@
+zookeeper
+------------------------------------------------
+##  master
+/hbase/master:                 active master
+/hbase/backup-masters:         backup-masters
+
+
+##  region server
+/hbase/rs:                     在线的RegionServer
+/hbase/meta-region-server:     hbase:meta所在的RegionServer
+/hbase/draining:               正在下线的RegionServer列表，避免多个RegionServer同时下线时，被下线的region被挪到正在下线的RegionServer上
+/hbase/running:
+
+##  HLog/Region
+/hbase/splitWAL:               恢复数据时，按region拆分的日志信息
+/hbase/table-lock:
+/hbase/flush-table-proc:
+/hbase/region-in-transition:   正在split的region
+/hbase/recovering-regions:     RegionServer宕机后，其上待恢复的regions
+
+
+## schema
+/hbase/hbaseid:
+/hbase/namespace:
+/hbase/table:
+/hbase/online-snapshot:        快照
+/hbase/replication:            主从复制信息?
+
+
+hbase:meta
+---------------------------------------------------
+key:
+
+[table],[region start key],[region batchId]
+
+values:
+
+info:regioninfo (serialized HRegionInfo instance for this region)
+info:server (server:port of the RegionServer containing this region)
+info:serverstartcode (start-time of the RegionServer process containing this region)

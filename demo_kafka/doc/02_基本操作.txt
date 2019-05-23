@@ -1,0 +1,64 @@
+kafak基本操作:Kafka_0.11
+---------------------------------
+
+1、设置环境变量，方便操作
+
+    vi ~/.bashrc
+
+    export KAFKA_HOME=/opt/cloudera/parcels/KAFKA
+    export PATH=$PATH:$KAFAK_HOME/bin
+
+2、创建topic
+
+    kafka-topics --create --zookeeper gp-bd-master01:2181/gupao-kafka --replication-factor 1 --partitions 1 --topic test
+
+    kafka-topics --list --zookeeper gp-bd-master01:2181/gupao-kafka
+
+    kafka-topics --alter --zookeeper gp-bd-master01:2181/gupao-kafka --partitions 2 --topic test
+
+    kafka-topics --describe --zookeeper gp-bd-master01:2181/gupao-kafka
+
+       主题/队列名称      分区编号        分区leader       副本位置         副本子集（ISR：In-Sync Replicas）
+
+    *  Topic: test     Partition: 0    Leader: 70      Replicas: 70    Isr: 70
+       Topic: test     Partition: 1    Leader: 71      Replicas: 71    Isr: 71
+
+    * 特殊topic: __consumer_offsets
+
+3、生产/消费消息
+
+  3.1 生产消息：kafka-console-producer --broker-list gp-bd-master01:9092 --topic test
+
+  如何选择分区：org.apache.kafka.clients.producer.internals.DefaultPartitioner
+   * 直接为message指定分区
+   * 如果message中带key,hash(key) % numPartitions
+   * 如果message中不带key,current_message_num(topic计数器) % availablePartitions
+
+  3.2 消费消息：kafka-console-consumer --bootstrap-server gp-bd-master01:9092 --topic test --from-beginning
+
+   * --offset,--partition,--from-beginning: earliest/latest/<offset_num>
+   * --topic，--blacklist，--whitelist:从多个topic消费数据
+
+4、元数据结构
+
+   * /gupao-kafka/cluster/batchId:集群信息
+
+   * /gupao-kafka/brokers/ids/<broker_id>：代理列表
+
+      {"listener_security_protocol_map":{"PLAINTEXT":"PLAINTEXT"},"endpoints":["PLAINTEXT://gp-bd-slave02:9092"],"jmx_port":9393,"host":"gp-bd-slave02","timestamp":"1518505861845","port":9092,"version":4}
+
+   * /gupao-kafka/topics/<topic_name>/partitions/<partition_id>/state：话题/分区/副本信息
+
+     {"controller_epoch":9,"leader":70,"version":1,"leader_epoch":0,"isr":[70]}
+
+   * /gupao-kafka/isr_change_notification：ISR变化的信息写入其中，KafkaController会监控zk的/isr_change_notification节点变化, 向所有的broker发送MetadataRequest
+
+   * /gupao-kafka/latest_producer_id_block：预分配的producer_id
+
+     {"version":1,"broker":81,"block_start":"10000","block_end":"10999"}
+
+   *  /gupao-kafka/controller: kafka controller
+
+     {"version":1,"brokerid":71,"timestamp":"1518505861465"}
+
+   * /gupao-kafka/controller_epoch: controller选举的次数

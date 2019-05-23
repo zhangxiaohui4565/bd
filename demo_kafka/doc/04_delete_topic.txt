@@ -1,0 +1,10 @@
+1、通过命令删除
+
+  > delete.topic.enable=true （打开删除开关)
+  > kafka-topics.sh  --delete --zookeeper localhost:2181/kafka --topic test
+
+
+2、手动删除
+
+ > 删除数据目录(${log.dirs})
+ > 删除zk中的元数据(/brokers/topics，/config/topics，/admin/delete_topics）

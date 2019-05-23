@@ -1,0 +1,8 @@
+/hbase/.tmp:                当对表做创建或者删除操作的时候，会将表move到该.tmp目录下，然后再去做处理操作
+/hbase/WALs:                日志目录(Write Ahead Log)
+/hbase/corrupt:             存储HBase做损坏的日志文件，一般都是为空的
+/hbase/data:                数据目录,按照/<namespace>/<tablename>/<encoded-regionname>/<column-family>/<filename>的结构来存储，默认的namespace有2个，分别是hbase和default
+/hbase/hbase.batchId:       hbase集群ID
+/hbase/hbase.version:       hbase集群版本
+/hbase/oldWALs：            已持久化的数据对应的HLog,经过${hbase.master.logcleaner.ttl}会被删除，默认是10分钟
+/hbase/archive:             HBase在做Split/compact/drop操作完成之后，会将HFile移到archive目录中,然后将之前的hfile删除掉,该目录由HMaster上的一个定时任务定期去清理

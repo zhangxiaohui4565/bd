@@ -1,0 +1,6 @@
+1、thread与task的关系
+2、如何join?
+3、如何window?
+4、table vs. stream 差异
+5、没有shuffle?
+6、state store底层实现？

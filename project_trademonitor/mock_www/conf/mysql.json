@@ -1,0 +1,15 @@
+{
+  //mysql连接信息
+  "mysql": {
+    "host": "localhost",
+    "port": 3306,
+    "user": "wuchen",
+    "password": "123456",
+    "database": "wuchen"
+  },
+  //mock程序运行时长（分钟）
+  "timeout": 10
+}
+
+
+

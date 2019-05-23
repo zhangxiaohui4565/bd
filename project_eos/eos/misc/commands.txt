@@ -1,0 +1,34 @@
+# start zookeeper
+./zookeeper-server-start.sh -daemon ../config/zookeeper.properties
+
+# check zookeeper
+echo "srvr" | nc 192.168.1.12 2181
+
+# start kafka
+./kafka-server-start.sh -daemon ../config/server.properties
+
+# start kafka-manager
+docker run -d -p 9000:9000 -e ZK_HOSTS="192.168.1.81:2181" -e APPLICATION_SECRET=test sheepkiller/kafka-manager
+
+# create kafka topic
+./kafka-topics.sh --create --zookeeper 192.168.1.81:2181 --topic eos-service-logs --partitions 3 --replication-factor 2
+
+# start es
+./elasticsearch -d
+
+# start cerebro
+docker run -d -p 192000:9000 yannart/cerebro:latest
+
+# start kibana
+docker run --name kibana-adhock-test -e ELASTICSEARCH_URL=http://192.168.1.81:192200 -p 6601:5601 -d kibana:5.5.1
+
+# install Hadoop HDFS Repository Plugin
+./elasticsearch-plugin install repository-hdfs
+
+# create log backup dir
+./hadoop fs -mkdir /eos_log_backup
+./hadoop fs -chown elasticsearch:elasticsearch /eos_log_backup
+sudo -u hdfs hadoop fs -chown elasticsearch:elasticsearch /eos_log_backup
+
+# start filebeat backgroud
+nohup ./filebeat -c filebeat.yml 2>&1 &

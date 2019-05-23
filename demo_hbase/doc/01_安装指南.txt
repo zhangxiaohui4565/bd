@@ -1,0 +1,62 @@
+1、下载HBase安装包，选择1.2.6版本：http://mirrors.shu.edu.cn/apache/hbase/
+2、解压HBase安装包：tar -xzvf /opt/software/hbase-1.2.6-bin.tar.gz  -C /opt/cluster
+3、修改配置
+
+    > conf/hbase-env.sh
+        ##设置JAVA_HOME
+        export  JAVA_HOME=/usr/java/latest
+
+        ##使用独立的ZK集群
+        export   HBASE_MANAGES_ZK=false
+
+    > conf/hbase-site.xml
+
+        ##指定HBase在HDFS上的存储目录
+        <property>
+        <name>hbase.rootdir</name>
+        <value>hdfs://gp-tmp-app1:9000/hbase</value>
+        </property>
+
+        ##指定hbase是分布式的
+        <property>
+        <name>hbase.cluster.distributed</name>
+        <value>true</value>
+        </property>
+
+        ##指定zk的地址，多个用“,”分割，集群启动后会在zk上创建/hbase节点
+        <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>gp-tmp-app1:2181,gp-tmp-app2:2181,gp-tmp-app3:2181</value>
+        </property>
+
+    > conf/regionservers  ##设置regionservers的host
+         gp-tmp-app2
+         gp-tmp-app3
+
+4、同步配置到其他节点
+
+      scp -r /opt/cluster/hbase-1.2.6 root@gp-tmp-app2:/opt/cluster
+      scp -r /opt/cluster/hbase-1.2.6 root@gp-tmp-app3:/opt/cluster
+
+5、启动集群
+
+   启动HBase集群：                 bin/start-hbase.sh  #在master节点执行
+   单独启动一个HMaster进程：        bin/hbase-daemon.sh start master
+   单独停止一个HMaster进程：        bin/hbase-daemon.sh stop master
+   单独启动一个HRegionServer进程：  bin/hbase-daemon.sh start regionserver
+   单独停止一个HRegionServer进程：  bin/hbase-daemon.sh stop regionserver
+
+6、验证集群是否正常启动
+
+   > 验证master是否正常启动：jps
+   > 验证regionserver是否正常启动：
+
+      ssh root@gp-tmp-app2 "jps"
+      ssh root@gp-tmp-app3 "jps"
+
+   > 访问监控页码：http://gp-tmp-app1:16010/master-status
+
+7、利用hbase shell进行简单操作
+  > bin/hbase shell
+  > create_namespace 'test'
+

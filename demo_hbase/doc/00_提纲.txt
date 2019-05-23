@@ -1,0 +1,49 @@
+1、HBASE简介
+
+ > 起源：BigTable
+ > 何为NoSQL数据库?
+ > HBASE与RDBMS的区别
+ > HBASE与HDFS的区别
+ > HBASE的特质
+
+2、HBASE的架构
+
+ > Master(active,backup)
+ > RegionServer
+ > Zookeeper
+ > Client
+ > HDFS
+
+3、HBASE的数据模型
+
+ > namespace:hbase,default
+ > table:rowkey,column_family:column_qualifier,timestamp,value
+ > table的设计模式: 宽表设计 vs. 窄表设计
+
+4、HBASE的读写流程
+
+ > 读流程:get/scan,filter
+ > 写流程:put/delete
+
+5、HBASE在ZK上的元数据存储介绍
+
+
+6、HBASE在HDFS上的数据存储介绍
+
+
+7、实战演示CRUD操作
+
+ > 咕泡hbase集群简介
+ > hbase client: shell,java,REST,Thirft,c/c++,scala
+ > 通过shell演示CRUD
+
+8、课后练习
+
+ > 阅读推荐文章
+ > 自己搭建一套Hbase集群
+ > 通过shell练习一些基本操作
+
+
+
+
+

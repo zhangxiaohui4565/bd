@@ -1,0 +1,56 @@
+/* 监控大屏样式表 */
+body {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 100px;
+    background-color: #282828;
+}
+
+#title {
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    margin-top: 20px
+}
+
+#updateTime {
+    color: #C0C0C0;
+    font-size: 5px;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    align: center
+}
+
+#lineChart1 {
+    height: 220px;
+    width: 400px
+}
+
+#cardChart {
+    height: 220px;
+    width: 400px
+}
+
+#pieChart {
+    height: 220px;
+    width: 400px
+}
+
+#lineChart2 {
+    height: 300px;
+    width: 400px
+}
+
+#barChart {
+    height: 300px;
+    width: 400px
+}
+
+#mapChart {
+    height: 300px;
+    width: 400px
+}

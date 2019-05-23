@@ -1,0 +1,27 @@
+> Output Operations on DStreams (Design Patterns for using foreachRDD)
+
+> DStream (PairDStreamFunctions) 隐式转换？
+
+> DataFrame and SQL Operations ？公用spark context
+
+> MLlib Operations ?
+
+> Caching / Persistence ?
+
+> Checkpointing ?
+
+> Accumulators, Broadcast Variables, and Checkpoints ?
+
+> Monitoring Applications
+
+  http://<driver-node>:4040 by SparkContext
+  http://<server-url>:18080 by HistoryServer
+
+------------------------------------------------------------------------
+1、checkpoint vs. cache/persist
+2、部分依赖checkpoint的操作？（窗口操作,join,updateStateByKey)
+3、多inputStream
+4、多output opt
+5、receiver vs. no receiver
+6、transform ?
+7、RDD vs. DStream ?

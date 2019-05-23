@@ -1,0 +1,81 @@
+1、官网资料：http://spark.apache.org/docs/latest/spark-standalone.html#installing-spark-standalone-to-a-cluster
+2、下载地址：http://spark.apache.org/downloads.html
+3、准备工作
+
+  > master通过ssh访问worker: 设置免密登录 或者 在环境变量SPARK_SSH_FOREGROUND中设置每个worker的密码
+
+4、解压：tar -xzvf /opt/software/spark-2.2.0-bin-hadoop2.7.tgz -C /opt/cluster
+
+5、复制环境：
+
+ > scp -r /opt/cluster/spark-2.2.0-bin-hadoop2.7 root@gp-tmp-app2:/opt/cluster
+
+ > scp -r /opt/cluster/spark-2.2.0-bin-hadoop2.7 root@gp-tmp-app3:/opt/cluster
+
+6、手动逐个启动
+
+ > 在master节点上启动Spark Master服务，./sbin/start-master.sh
+
+   http://gp-tmp-app1:8081/
+
+ > 在worker节点上启动Spark Worker服务，./sbin/start-slave.sh <master-spark-url>
+
+    ssh root@gp-tmp-app2 "/opt/cluster/spark-2.2.0-bin-hadoop2.7/sbin/start-slave.sh  spark://gp-tmp-app1:7077"
+    ssh root@gp-tmp-app3 "/opt/cluster/spark-2.2.0-bin-hadoop2.7/sbin/start-slave.sh  spark://gp-tmp-app1:7077"
+
+ > 启动时的一些参数
+
+            master:
+
+            -i HOST, --ip HOST        Hostname to listen on (deprecated, please use --host or -h)
+            -h HOST, --host HOST   Hostname to listen on
+            -p PORT, --port PORT    Port to listen on (default: 7077)
+            --webui-port PORT          Port for web UI (default: 8080)
+            --properties-file                 FILE Path to a custom Spark properties file. Default is conf/spark-defaults.conf.
+
+            worker:
+
+            -c CORES, --cores CORES   Number of cores to use
+            -m MEM, --memory MEM        Amount of memory to use (e.g. 1000M, 2G)
+            -d DIR, --work-dir DIR             Directory to run apps in (default: SPARK_HOME/work)
+            -i HOST, --ip IP                         Hostname to listen on (deprecated, please use --host or -h)
+            -h HOST, --host HOST            Hostname to listen on
+            -p PORT, --port PORT             Port to listen on (default: random)
+            --webui-port PORT                  Port for web UI (default: 8081)
+            --properties-file FILE              Path to a custom Spark properties file. Default is conf/spark-defaults.conf.
+
+7、一键启动
+
+  > 从conf/slaves.template复制出一份新的文件slaves,将worker节点的hosts加入: cp slaves.template slaves
+
+   sbin/start-master.sh    Starts a master instance on the machine the script is executed on.
+   sbin/start-slaves.sh     Starts a slave instance on each machine specified in the conf/slaves file.
+   sbin/start-slave.sh       Starts a slave instance on the machine the script is executed on.
+   sbin/start-all.sh           Starts both a master and a number of slaves as described above.
+   sbin/stop-master.sh     Stops the master that was started via the bin/start-master.sh script.
+   sbin/stop-slaves.sh      Stops all slave instances on the machines specified in the conf/slaves file.
+   sbin/stop-all.sh           Stops both the master and the slaves as described above.
+
+8、验证
+
+  > spark-shell: ./bin/spark-shell --master spark://gp-tmp-app1:7077
+
+     echo "tom frank tom" >> /opt/row/works.txt
+
+     val rdd01 = sc.makeRDD(List(1,2,3,4,5,6))
+     val r01 = rdd01.map { x => x * x }
+     println(r01.collect().mkString(","))
+
+  >  ./bin/spark-submit \
+       --class org.apache.spark.examples.SparkPi \
+       --master spark://gp-tmp-app1:7077 \
+       --executor-memory 1G \
+       --total-executor-cores 2 \
+       /opt/cluster/spark-2.2.0-bin-hadoop2.7/examples/jars/spark-examples_2.11-2.2.0.jar \
+       1000
+
+9、HA
+
+  > Standby Masters with ZooKeeper
+  > Single-Node Recovery with Local File System
+

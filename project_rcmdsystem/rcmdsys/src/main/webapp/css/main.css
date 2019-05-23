@@ -1,0 +1,105 @@
+#content {
+    border-radius: 20px;
+    width: 720px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#search_div {
+	height: 30px;
+	text-align:center;
+	margin: 20px 0 10px 0;
+}
+
+#search_div a {
+	color:#f4a142;
+	font-weight:Bold;
+	text-decoration:none;
+	font-size: 24px;
+}
+
+.item {
+    display: block;
+    float: left;
+    color: #37a;
+    font-size: 13px;
+    text-align: center;
+    margin: 0 25px 10px 0;
+    width: 115px;
+}
+
+.item .cover-wp {
+    background-size: 100%;
+    height: 161px;
+    overflow: hidden;
+}
+.cover-wp img{
+    height: 161px;
+    width: 115px;
+}
+
+p {
+	display: block;
+	width:100px;
+	white-space:nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+html h1 {
+    font-size: 26px;
+}
+
+h1 {
+    word-wrap: break-word;
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    color: #494949;
+    margin: 0;
+    padding: 0 0 15px 0;
+    line-height: 1.1;
+}
+.block_tip{
+	margin: 0 0 10px 0;
+}
+
+#current_movie_div {
+    width: 720px;
+    height: 207px;
+    margin: 30px 0 10px 0;
+}
+#rcmd_movies_div{
+    width: 720px;
+    margin: 60px 0 0 0;
+}
+.subject {
+    width: 720px;
+    height: 164px;
+}
+#poster_div {
+    margin: 3px 0 0 0;
+    float: left;
+    text-align: center;
+    margin: 3px 12px 0 0;
+    width: 115px;
+    height: 161px;
+    overflow: hidden;
+}
+#poster_div img {
+    width: 115px;
+    height: 161px;
+}
+#info_div {
+    height: 164px;
+}
+.clearfix {
+    display: block;
+}
+.subject #mainpic {
+    margin-right: 15px;
+}

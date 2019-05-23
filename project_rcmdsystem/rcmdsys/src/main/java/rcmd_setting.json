@@ -1,0 +1,36 @@
+{
+	"blacklistRules" : ["FILTER_PORN_MOVIE"],
+	"recommenders" : {
+		"VISITOR_HOMEPAGE":{
+			"cacheStrategy" : "NO_CACHE",
+			"bizRules":[
+				{
+					"ruleName": "ADD_FEATURED_MOVIE",
+					"initParam" : "2"
+				}
+			],
+			"defaultAlgorithm" : "TOP_N"
+		},
+		
+		"USER_HOMEPAGE":{
+			"cacheStrategy" : "NO_CACHE",
+			"bizRules":[
+                {
+                    "ruleName": "ADD_FEATURED_MOVIE",
+                    "initParam" : "2"
+                }
+            ],
+			"defaultAlgorithm" : "TOP_N"
+		},
+		
+		"SINGLE_MOVIE_PAGE":{
+			"cacheStrategy" : "NO_CACHE",
+			"bizRules":[],
+			"defaultAlgorithm" : "CWBTIAB",
+            "shuntStrategy" : {
+                "strategyName": "POLL_SHUNT",
+                "setting": [ "CWBTIAB", "ITEM_BASED_CF" ]
+            }
+		}
+	}
+}

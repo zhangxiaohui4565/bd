@@ -1,0 +1,11 @@
+create table web_pv(
+  batchId BIGINT AUTO_INCREMENT NOT NULL PRIMARY KEY COMMENT 'ID',
+  url VARCHAR(4000) COMMENT 'URL',
+  count BIGINT COMMENT 'count'
+) ENGINE = InnoDB;
+
+create table web_uv(
+  batchId BIGINT AUTO_INCREMENT NOT NULL PRIMARY KEY COMMENT 'ID',
+  url VARCHAR(4000) COMMENT 'URL',
+  count BIGINT COMMENT 'count'
+) ENGINE = InnoDB;

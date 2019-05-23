@@ -1,0 +1,26 @@
+2019-02-23 12:07:11,861 INFO  [192.168.0.110,49398,1550894521147_ChoreService_1] regionserver.HRegionServer: 192.168.0.110,49398,1550894521147-MemstoreFlusherChore requesting flush of hbase:meta,,1.1588230740 because info has an old edit so flush to free WALs after random delay 124,815 ms
+2019-02-23 12:09:16,678 INFO  [MemStoreFlusher.0] regionserver.HRegion: Flushing 1/1 column families, memstore=6.15 KB
+2019-02-23 12:09:16,707 INFO  [MemStoreFlusher.0] regionserver.DefaultStoreFlusher: Flushed, sequenceid=277, memsize=6.1 K, hasBloomFilter=false, into tmp file file:/Users/liuhailiang/Public/data/hbase/data/hbase/meta/1588230740/.tmp/e0ddd2358b3648a79c80fd0be2088b50
+2019-02-23 12:09:16,709 INFO  [MemStoreFlusher.0] regionserver.HStore: Added file:/Users/liuhailiang/Public/data/hbase/data/hbase/meta/1588230740/info/e0ddd2358b3648a79c80fd0be2088b50, entries=32, sequenceid=277, filesize=8.5 K
+2019-02-23 12:09:16,710 INFO  [MemStoreFlusher.0] regionserver.HRegion: Finished memstore flush of ~6.15 KB/6296, currentsize=0 B/0 for region hbase:meta,,1.1588230740 in 32ms, sequenceid=277, compaction requested=false
+2019-02-23 12:10:01,376 INFO  [Idle-Rpc-Conn-Sweeper-pool2-t1] ipc.AbstractRpcClient: Cleanup idle connection to /192.168.0.110:49398
+2019-02-23 12:11:19,499 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2383] server.NIOServerCnxnFactory: Accepted socket connection from /127.0.0.1:49540
+2019-02-23 12:11:19,505 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2383] server.ZooKeeperServer: Client attempting to establish new session at /127.0.0.1:49540
+2019-02-23 12:11:19,506 INFO  [SyncThread:0] server.ZooKeeperServer: Established session 0x1691884552b0006 with negotiated timeout 40000 for client /127.0.0.1:49540
+2019-02-23 12:12:01,686 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=609.03 KB, freeSize=792.01 MB, max=792.60 MB, blockCount=5, accesses=19, hits=14, hitRatio=73.68%, , cachingAccesses=19, cachingHits=14, cachingHitsRatio=73.68%, evictions=59, evicted=0, evictedPerRun=0.0
+2019-02-23 12:13:36,067 INFO  [RpcServer.default.FPBQ.Fifo.handler=29,queue=2,port=49394] master.MasterRpcServices: Client=liuhailiang//192.168.0.110 procedure request for: flush-table-proc
+2019-02-23 12:13:36,076 INFO  [(192.168.0.110,49394,1550894519829)-proc-coordinator-pool1-thread-1] procedure.Procedure: Starting procedure 'gupao:students'
+2019-02-23 12:13:36,078 INFO  [main-EventThread] procedure.ZKProcedureMemberRpcs: Received procedure start children changed event: /hbase/flush-table-proc/acquired
+2019-02-23 12:13:36,081 INFO  [rs(192.168.0.110,49398,1550894521147)-flush-proc-pool5-thread-1] regionserver.HRegion: Flushing 1/1 column families, memstore=128 B
+2019-02-23 12:13:36,094 INFO  [rs(192.168.0.110,49398,1550894521147)-flush-proc-pool5-thread-1] regionserver.DefaultStoreFlusher: Flushed, sequenceid=10, memsize=128, hasBloomFilter=true, into tmp file file:/Users/liuhailiang/Public/data/hbase/data/gupao/students/18abae070f3a74e5bed35752ffbd9a00/.tmp/754cec7de17b4e98addb18821619b038
+2019-02-23 12:13:36,096 INFO  [rs(192.168.0.110,49398,1550894521147)-flush-proc-pool5-thread-1] regionserver.HStore: Added file:/Users/liuhailiang/Public/data/hbase/data/gupao/students/18abae070f3a74e5bed35752ffbd9a00/info/754cec7de17b4e98addb18821619b038, entries=1, sequenceid=10, filesize=4.8 K
+2019-02-23 12:13:36,096 INFO  [rs(192.168.0.110,49398,1550894521147)-flush-proc-pool5-thread-1] regionserver.HRegion: Finished memstore flush of ~128 B/128, currentsize=0 B/0 for region gupao:students,,1550388424347.18abae070f3a74e5bed35752ffbd9a00. in 15ms, sequenceid=10, compaction requested=false
+2019-02-23 12:13:36,099 INFO  [main-EventThread] procedure.ZKProcedureMemberRpcs: Received created event:/hbase/flush-table-proc/reached/gupao:students
+2019-02-23 12:13:36,100 INFO  [(192.168.0.110,49394,1550894519829)-proc-coordinator-pool1-thread-1] procedure.Procedure: Procedure 'gupao:students' execution completed
+2019-02-23 12:13:36,100 INFO  [(192.168.0.110,49394,1550894519829)-proc-coordinator-pool1-thread-1] procedure.ZKProcedureUtil: Clearing all znodes for procedure gupao:studentsincluding nodes /hbase/flush-table-proc/acquired /hbase/flush-table-proc/reached /hbase/flush-table-proc/abort
+2019-02-23 12:13:36,101 INFO  [main-EventThread] procedure.ZKProcedureMemberRpcs: Received created event:/hbase/flush-table-proc/abort/gupao:students
+2019-02-23 12:13:36,102 INFO  [main-EventThread] procedure.ZKProcedureMemberRpcs: Received procedure abort children changed event: /hbase/flush-table-proc/abort
+2019-02-23 12:13:36,110 INFO  [main-EventThread] procedure.ZKProcedureMemberRpcs: Received procedure start children changed event: /hbase/flush-table-proc/acquired
+2019-02-23 12:13:36,110 INFO  [main-EventThread] procedure.ZKProcedureMemberRpcs: Received procedure abort children changed event: /hbase/flush-table-proc/abort
+2019-02-23 12:13:36,110 INFO  [RpcServer.default.FPBQ.Fifo.handler=29,queue=2,port=49394] flush.MasterFlushTableProcedureManager: Done waiting - exec procedure flush-table-proc for 'gupao:students'
+2019-02-23 12:13:36,111 INFO  [RpcServer.default.FPBQ.Fifo.handler=29,queue=2,port=49394] flush.MasterFlushTableProcedureManager: Master flush table procedure is successful!

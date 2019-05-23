@@ -1,0 +1,4 @@
+create 'default:user','info'
+create 'default:product','info'
+create 'default:order_detail','info'
+create 'default:order','info'

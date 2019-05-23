@@ -1,0 +1,8 @@
+1、streaming如何容错(driver+executor)?
+2、streaming数据接收原理？
+3、streaming数据持久化？
+4、checkpoint干了啥事情？
+5、WAL?
+6、join /state操作？
+7、exactly once保证？
+8、Receiver Reliability ？

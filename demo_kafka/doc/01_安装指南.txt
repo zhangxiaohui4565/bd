@@ -1,0 +1,107 @@
+1、下载：https://www.apache.org/dyn/closer.cgi?path=/kafka/1.1.0/kafka_2.11-1.1.0.tgz
+（ kafka_2.11-1.1.0.tgz:用scala开发，2.11是对应scala版本 ）
+
+
+2、解压：tar -xzvf /opt/software/kafka_2.11-1.1.0.tgz -C /opt/cluster
+
+
+3、修改 config/server.properties
+
+  create /kafka 123
+
+  ZooKeeper连接字符串的格式为：hostname:port，此处hostname和port分别是ZooKeeper集群中某个节点的host和port；为了当某个host宕掉之后你能通过其他ZooKeeper节点进行连接，你可以按照一下方式制定多个hosts：
+  hostname1:port1, hostname2:port2, hostname3:port3.
+
+  ZooKeeper 允许你增加一个“chroot”路径，将集群中所有kafka数据存放在特定的路径下。当多个Kafka集群或者其他应用使用相同ZooKeeper集群时，可以使用这个方式设置数据存放路径。这种方式的实现可以通过这样设置连接字符串格式，如下所示：
+  hostname1：port1，hostname2：port2，hostname3：port3/chroot/path
+  这样设置就将所有kafka集群数据存放在/chroot/path路径下。注意，在你启动broker之前，你必须创建这个路径，并且consumers必须使用相同的连接格式。
+
+  zookeeper.connect=gp-tmp-app1:2181,gp-tmp-app2:2181,gp-tmp-app3:2181/kafka
+
+
+  1、使用默认配置就好，注意五个个选项，brokerid、num.partitions、default.replication.factor、zookeeper.connect、zookeeper.connection.timeout.ms
+  2、brokerid，当前节点的id号，唯一标识，建议给顺序数字，方便管理
+
+  broker.batchId=1
+  broker.batchId=2
+  broker.batchId=3
+
+  3、num.partitions，控制设定几个分区，default.replication.factor，控制设定几个备份。
+  4、zookeeper.connect指定外部zk源的各个节点。若无特殊指定，外部zk集群默认端口2181
+  5、zookeeper.connection.timeout.ms根据自身网络情况设定，通常默认就好
+
+
+  log.dirs=/opt/row/kafka-logs
+
+
+4、环境复制
+
+   mkdir /opt/row/kafka-logs
+
+   ssh root@gp-tmp-app2 "mkdir -p /opt/row/kafka-logs"
+
+   ssh root@gp-tmp-app3 "mkdir -p /opt/row/kafka-logs"
+
+5、同步( 修改 broker.batchId )
+
+   scp -r /opt/cluster/kafka_2.11-1.1.0 root@gp-tmp-app2:/opt/cluster
+   scp -r /opt/cluster/kafka_2.11-1.1.0 root@gp-tmp-app3:/opt/cluster
+
+
+6、启动集群
+
+   必须在bin目录下执行启动脚本
+
+   /opt/cluster/kafka_2.11-1.1.0/bin/kafka-server-start.sh -daemon /opt/cluster/kafka_2.11-1.1.0/config/server.properties
+
+   [root@gp-tmp-app1 kafka_2.11-1.1.0]# ./bin/kafka-server-start.sh –daemon ./config/server.properties
+   [2018-04-10 13:02:50,419] INFO Registered kafka:type=kafka.Log4jController MBean (kafka.utils.Log4jControllerRegistration$)
+   [2018-04-10 13:02:50,440] ERROR Exiting Kafka due to fatal exception (kafka.Kafka$)
+   java.io.FileNotFoundException: –daemon (没有那个文件或目录)
+           at java.io.FileInputStream.open0(Native Method)
+           at java.io.FileInputStream.open(FileInputStream.java:195)
+           at java.io.FileInputStream.<init>(FileInputStream.java:138)
+           at java.io.FileInputStream.<init>(FileInputStream.java:93)
+           at org.apache.kafka.common.utils.Utils.loadProps(Utils.java:510)
+           at kafka.Kafka$.getPropsFromArgs(Kafka.scala:44)
+           at kafka.Kafka$.main(Kafka.scala:81)
+           at kafka.Kafka.main(Kafka.scala)
+
+   ssh root@gp-tmp-app2 "/opt/cluster/kafka_2.11-1.1.0/bin/kafka-server-start.sh -daemon /opt/cluster/kafka_2.11-1.1.0/config/server.properties"
+   ssh root@gp-tmp-app3 "/opt/cluster/kafka_2.11-1.1.0/bin/kafka-server-start.sh -daemon /opt/cluster/kafka_2.11-1.1.0/config/server.properties"
+
+7、验证
+
+  > 登录zk查看broker是否都正常启动：ls /kafka/brokers/ids
+     [1, 2, 3]
+
+  > Create a topic
+
+   bin/kafka-topics.sh --create --zookeeper gp-tmp-app1:2181/kafka --replication-factor 1 --partitions 1 --topic test
+
+   Error while executing topic command : Replication factor: 1 larger than available brokers: 0.
+   [2018-04-10 13:26:10,206] ERROR org.apache.kafka.common.errors.InvalidReplicationFactorException: Replication factor: 1 larger than available brokers: 0.
+
+    7.1 检查kafka是否正常启动
+    7.2 检查zk的路径是否正确：gp-tmp-app1:2181/kafka （和server.properties一致）
+
+   bin/kafka-topics.sh --list --zookeeper gp-tmp-app1:2181
+
+   bin/kafka-topics.sh --describe --zookeeper gp-tmp-app1:2181 --topic test
+
+  > Send some messages
+
+    bin/kafka-console-producer.sh --broker-list gp-tmp-app1:9092 --topic test
+
+  > Start a consumer
+
+    bin/kafka-console-consumer.sh --bootstrap-server gp-tmp-app1:9092 --topic test --from-beginning
+
+  > Use Kafka Connect to import/export row
+
+    bin/connect-standalone.sh config/connect-standalone.properties config/connect-file-source.properties config/connect-file-sink.properties
+
+  > Use Kafka Streams to process row
+
+
+8、官方文档：http://kafka.apache.org/quickstart

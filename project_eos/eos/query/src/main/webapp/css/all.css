@@ -1,0 +1,172 @@
+body {
+  font: normal 80% Helvetica, Arial, sans-serif;
+  color: #555;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.title {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search-bar {
+  margin: 10px;
+  padding: 5px;
+  background: #fff;
+}
+
+.search-bar > div {
+  float: left;
+  margin: 10px;
+}
+
+.search-stats-bar {
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search-stats {
+  float: left;
+  margin-right: 10px;
+}
+
+.pages {
+  float: left;
+  visibility: hidden;
+  margin-right: 10px;
+}
+
+.page-enable {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #007fff;
+}
+
+.page-disable {
+  text-decoration: none;
+  cursor: auto;
+  color: #c5c5c5;
+}
+
+.logs {
+  border: 1px solid #eee;
+  padding: 5px;
+  min-height: 800px;
+  margin: 10px;
+  word-break: break-word;
+  color: #fff;
+  background: #000;
+}
+
+.log {
+  margin-bottom: 10px;
+}
+
+.log > span {
+  margin-right: 5px;
+}
+
+.log-ip {
+  color: #ccc;
+  font-style: italic;
+}
+
+.normal-text {
+  color: #fff;
+  font-weight: bold;
+}
+
+.warn-text {
+  color: orange;
+  font-weight: bold;
+}
+
+.error-text {
+  color: #f00;
+  font-weight: bold;
+}
+
+.search-result {
+  margin: 10px;
+  background: #fff;
+}
+
+.foot {
+  clear: both;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+em {
+  color: #FF0000;
+}
+
+.enabled-status {
+  color: #000;
+}
+
+.disabled-status {
+  color: #ddd;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.layui-card-header {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.layui-form-label {
+  width: auto !important;
+}
+
+.block {
+  margin: 40px;
+  float: left;
+}
+
+.block > table {
+  width: 600px;
+  min-height: 25px;
+  line-height: 25px;
+  border-collapse: collapse;
+}
+
+.block > table, th, tr, td {
+  text-align: left;
+  border: 1px solid;
+  padding: 5px 10px;
+}
+
+.log-text {
+  font-size: 20px !important;
+}
+
+.layui-icon {
+  font-size: 18px !important;
+}
+
+dd > a {
+  padding: 0 40px !important;
+}
+
+.mainBody {
+  background: #eee;
+}
+
+.input-required {
+  color: #FF0000;
+  margin: 0 5px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.search-keyword {
+  width: auto !important;
+}

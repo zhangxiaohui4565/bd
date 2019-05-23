@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fa2ca379-eea1-47c1-b941-d15b8b5173eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../demo_flink/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_flink/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/bean/CarWc.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/bean/SensorInfo.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/sink/SinkToMySQL.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/sink/SinkToMySQL.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/source/SourceFromMySQL.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/source/SourceFromMySQL.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/watermark/WatermarkWithExtractor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/watermark/WatermarkWithExtractor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/window/SessionWindow.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/window/SessionWindow.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/window/SlidingCountWindow.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/window/SlidingCountWindow.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/window/SlidingTimeWindow.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/window/SlidingTimeWindow.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/window/TumblingCountWindow.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/window/TumblingCountWindow.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/window/TumblingTimeWindow.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_flink/src/main/scala/com/gupao/bd/sample/flink/realtime/window/TumblingTimeWindow.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/app/WordCountTopology.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/app/WordCountTopology.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/PrintBolt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/PrintBolt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/SplitSentenceBolt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/SplitSentenceBolt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/kafka/TestProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/kafka/SentenceProducer.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/AreaOrderTopology.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/windowing/SlidingTupleTsTopology.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/trident/TridentOperator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/start.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="156" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/AreaOrderSinkBolt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/kafka/SentenceProducer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/kafka/OrderProducer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="990">
+              <caret line="66" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/utils/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-kafka/1.2.2/storm-kafka-1.2.2.jar!/org/apache/storm/kafka/SpoutConfig.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/SplitSentenceBolt2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/utils/MapSortUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/utils/PropertiesUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/WordCountBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/storm-example.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/spout/SentenceSpout.java" />
+        <option value="$PROJECT_DIR$/doc/storm集群安装文档" />
+        <option value="$PROJECT_DIR$/config/storm.yaml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/spout/RandomSentenceSpout.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/SplitSentenceBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/window/MyWindowBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/window/SlidingTupleTsTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/window/bolt/SlidingWindowSumBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/window/app/SlidingTupleTsTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/PrintBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/app/WordCountWindowTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/WordCountWithStateBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/utils/DateUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/dao/HbaseDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/spout/FakeTweetsBatchSpout.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/kafka/TestProducer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/dao/HbaseDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/app/WordCountTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/app/TumblingWindowTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/app/SlidingTupleTsTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/windowing/WordCountWindowTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/trident/TridentDemo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/SlidingWindowSumBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/AreaOrderSinkBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/AreaAmtCountBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/ParserBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/windowing/SlidingTupleTsTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/kafka/OrderProducer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/trident/WordCountTridentTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/TumblingWindowAvgBolt.java" />
+        <option value="$PROJECT_DIR$/bin/start.sh" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/windowing/TumblingWindowTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/spout/RandomIntegerSpout.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/kafka/SentenceProducer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/AreaOrderParserBolt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/AreaOrderTopology.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/trident/TridentOperator.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="demo_storm" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="demo_storm" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="8" />
+    <option name="y" value="23" />
+    <option name="width" value="1451" />
+    <option name="height" value="956" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="demo_storm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demo_storm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo_storm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demo_storm" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo_storm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demo_storm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo_storm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demo_storm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550413382697" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.gp.bd.sample.storm.kafka" />
+      <recent name="com.gp.bd.sample.storm.app" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.OrderProducer">
+    <configuration name="AreaOrderTopology" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gp.bd.sample.storm.orders.AreaOrderTopology" />
+      <module name="demo_storm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gp.bd.sample.storm.orders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderProducer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gp.bd.sample.storm.kafka.OrderProducer" />
+      <module name="demo_storm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gp.bd.sample.storm.kafka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SentenceProducer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gp.bd.sample.storm.kafka.SentenceProducer" />
+      <module name="demo_storm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gp.bd.sample.storm.kafka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SlidingTupleTsTopology" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gp.bd.sample.storm.windowing.SlidingTupleTsTopology" />
+      <module name="demo_storm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gp.bd.sample.storm.windowing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordCountTridentTopology" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gp.bd.sample.storm.trident.WordCountTridentTopology" />
+      <module name="demo_storm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gp.bd.sample.storm.trident.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.WordCountTridentTopology" />
+      <item itemvalue="Application.SlidingTupleTsTopology" />
+      <item itemvalue="Application.SentenceProducer" />
+      <item itemvalue="Application.AreaOrderTopology" />
+      <item itemvalue="Application.OrderProducer" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.OrderProducer" />
+        <item itemvalue="Application.AreaOrderTopology" />
+        <item itemvalue="Application.SentenceProducer" />
+        <item itemvalue="Application.WordCountTridentTopology" />
+        <item itemvalue="Application.SlidingTupleTsTopology" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../../../github/spark-branch-2.3" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa2ca379-eea1-47c1-b941-d15b8b5173eb" name="Default Changelist" comment="" />
+      <created>1547694685043</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547694685043</updated>
+      <workItem from="1547694686405" duration="641000" />
+      <workItem from="1547696594567" duration="2291000" />
+      <workItem from="1547792190912" duration="573000" />
+      <workItem from="1547826211525" duration="668000" />
+      <workItem from="1547878584255" duration="1365000" />
+      <workItem from="1547883545184" duration="562000" />
+      <workItem from="1547889623995" duration="302000" />
+      <workItem from="1547891083622" duration="626000" />
+      <workItem from="1547896677229" duration="2673000" />
+      <workItem from="1549869310537" duration="5650000" />
+      <workItem from="1550070752864" duration="1113000" />
+      <workItem from="1550071933904" duration="423000" />
+      <workItem from="1550072401949" duration="1920000" />
+      <workItem from="1550141915771" duration="5114000" />
+      <workItem from="1550223178701" duration="20675000" />
+      <workItem from="1550310514999" duration="351000" />
+      <workItem from="1550310900549" duration="359000" />
+      <workItem from="1550311363362" duration="1597000" />
+      <workItem from="1550313306511" duration="1174000" />
+      <workItem from="1550314527223" duration="260000" />
+      <workItem from="1550314817520" duration="15040000" />
+      <workItem from="1550411148403" duration="1782000" />
+      <workItem from="1550413475251" duration="308000" />
+      <workItem from="1550900141089" duration="10000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="65477000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="8" y="23" width="1451" height="956" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26685593" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32982457" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4039352" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.5127315" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3287037" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" visible="true" weight="0.14691271" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/windowing/WaterMarkEvent.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/windowing/TupleWindowImpl.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/windowing/WindowManager.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/windowing/TriggerPolicy.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/windowing/EvictionPolicy.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/windowing/EventImpl.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/windowing/Event.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/windowing/DefaultEvictionContext.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/windowing/CountEvictionPolicy.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/windowing/CountTriggerPolicy.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/topology/base/BaseWindowedBolt.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/topology/base/BaseRichBolt.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/SplitSentenceBolt2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="12" column="53" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/topology/base/BaseBasicBolt.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/dao/HbaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/trident/testing/Split.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/trident/TridentTopology.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-kafka/1.2.2/storm-kafka-1.2.2.jar!/org/apache/storm/kafka/trident/TridentKafkaConfig.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-hbase/1.2.2/storm-hbase-1.2.2.jar!/org/apache/storm/hbase/trident/state/HBaseUpdater.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/trident/state/BaseStateUpdater.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/spout/SchemeAsMultiScheme.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2-sources.jar!/org/apache/storm/spout/Scheme.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/spout/RandomSentenceSpout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/storm-example.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2.jar!/org/apache/storm/trident/fluent/IAggregatableStream.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2.jar!/org/apache/storm/trident/operation/builtin/Sum.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" selection-start-line="11" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2.jar!/org/apache/storm/trident/operation/builtin/Max.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" selection-start-line="7" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/PrintBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/SplitSentenceBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/windowing/WordCountWindowTopology.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2.jar!/org/apache/storm/trident/tuple/TridentTupleView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3075">
+          <caret line="292" column="13" lean-forward="true" selection-start-line="292" selection-start-column="13" selection-end-line="292" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.2.2/storm-core-1.2.2.jar!/org/apache/storm/trident/tuple/TridentTuple.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/TumblingWindowAvgBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/spout/RandomIntegerSpout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1509#1510#0" expanded="true" />
+            <element signature="e#1566#1567#0" expanded="true" />
+            <element signature="e#1618#1619#0" expanded="true" />
+            <element signature="e#1676#1677#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/windowing/TumblingWindowTopology.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/bolt/SlidingWindowSumBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-kafka/1.2.2/storm-kafka-1.2.2.jar!/org/apache/storm/kafka/trident/OpaqueTridentKafkaSpout.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding>
+            <element signature="e#805#806#0" expanded="true" />
+            <element signature="e#842#843#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/AreaOrderParserBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/AreaAmtCountBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="61" column="70" selection-start-line="61" selection-start-column="70" selection-end-line="61" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/trident/WordCountTridentTopology.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2160">
+          <caret line="144" column="1" selection-start-line="144" selection-start-column="1" selection-end-line="144" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/app/WordCountTopology.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="64" column="105" selection-start-line="63" selection-start-column="10" selection-end-line="64" selection-end-column="105" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/AreaOrderTopology.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/windowing/SlidingTupleTsTopology.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/start.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/orders/AreaOrderSinkBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/kafka/SentenceProducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/kafka/OrderProducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-kafka/1.2.2/storm-kafka-1.2.2.jar!/org/apache/storm/kafka/SpoutConfig.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gp/bd/sample/storm/trident/TridentOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

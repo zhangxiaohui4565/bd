@@ -1,0 +1,15 @@
+1、在pom.xml中引入kafka-log4j-appender
+
+    <dependency>
+       <groupId>org.apache.kafka</groupId>
+       <artifactId>kafka-log4j-appender</artifactId>
+       <version>0.10.2.0</version>
+   </dependency>
+
+2、编辑log4j.properties,将错误日志输出到kafka
+
+
+3、在应用程序中通过log4j/slf4j记录日志信息
+
+
+4、编写LogConsumer程序从kafka消费数据，并解析存入MySQL

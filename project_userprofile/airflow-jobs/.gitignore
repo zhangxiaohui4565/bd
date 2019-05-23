@@ -1,0 +1,5 @@
+airflow.db
+unittests.cfg
+logs/
+.vscode/
+.DS_Store

@@ -1,0 +1,118 @@
+PUT _template/base
+{
+  "order": 0,
+  "template": "*",
+  "settings": {
+    "translog.flush_threshold_size": "1g",
+    "index.search.slowlog.threshold.query.warn": "10s",
+    "index.search.slowlog.threshold.query.info": "5s",
+    "index.search.slowlog.threshold.query.debug": "2s",
+    "index.search.slowlog.threshold.query.trace": "500ms",
+    "index.search.slowlog.threshold.fetch.warn": "1s",
+    "index.search.slowlog.threshold.fetch.info": "800ms",
+    "index.search.slowlog.threshold.fetch.debug": "500ms",
+    "index.search.slowlog.threshold.fetch.trace": "200ms",
+    "index.search.slowlog.level": "info",
+    "index.indexing.slowlog.threshold.index.warn": "10s",
+    "index.indexing.slowlog.threshold.index.info": "5s",
+    "index.indexing.slowlog.threshold.index.debug": "2s",
+    "index.indexing.slowlog.threshold.index.trace": "500ms",
+    "index.indexing.slowlog.level": "info",
+    "index.indexing.slowlog.source": 1000
+  },
+  "mappings": {
+    "_default_": {
+      "_all": {
+        "enabled": false
+      },
+      "dynamic_templates": [
+        {
+          "string_as_keyword": {
+            "match_mapping_type": "string",
+            "match": "*",
+            "mapping": {
+              "type": "keyword"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+PUT _template/eos_service_log
+{
+  "order": 1,
+  "template": "eos_service_log*",
+  "settings": {
+    "index": {
+      "refresh_interval": "10s",
+      "number_of_shards": "3",
+      "translog": {
+        "flush_threshold_size": "4g"
+      },
+      "number_of_replicas": "1",
+      "query": {
+        "default_field": "message"
+      }
+    }
+  },
+  "mappings": {
+    "all": {
+      "properties": {
+        "version": {
+          "type": "keyword"
+        },
+        "uuid": {
+          "type": "keyword"
+        },
+        "traceId": {
+          "type": "keyword"
+        },
+        "timestamp": {
+          "format": "epoch_millis",
+          "type": "date"
+        },
+        "ip": {
+          "type": "keyword"
+        },
+        "hostName": {
+          "type": "keyword"
+        },
+        "serviceId": {
+          "type": "keyword"
+        },
+        "threadName": {
+          "type": "keyword"
+        },
+        "threadId": {
+          "type": "keyword"
+        },
+        "level": {
+          "type": "keyword"
+        },
+        "line": {
+          "type": "keyword"
+        },
+        "clazz": {
+          "type": "keyword"
+        },
+        "method": {
+          "type": "keyword"
+        },
+        "message": {
+          "type": "text"
+        },
+        "exceptionClass": {
+          "type": "keyword"
+        },
+        "exceptionMessage": {
+          "type": "text"
+        },
+        "exceptionStack": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

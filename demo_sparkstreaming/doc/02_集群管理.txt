@@ -1,0 +1,3 @@
+1、standalone cluster模式下kill掉应用程序
+
+ ./bin/spark-class org.apache.spark.deploy.Client kill <master url> <driver ID>

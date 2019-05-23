@@ -1,0 +1,12 @@
+{
+  "kafka": {
+    "zk.quorum": "localhost:2181/kafka",
+    "topic.metric": "gp_metric"
+  },
+  "node": {
+    "listen.port": 3030
+  }
+}
+
+
+

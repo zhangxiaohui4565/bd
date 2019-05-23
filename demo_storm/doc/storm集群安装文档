@@ -1,0 +1,59 @@
+服务器分配：
+    系统： centos-7
+    10.161.1.1    Nimbus                    java-1.8
+    10.161.1.2    Nimbus                    java-1.8
+    10.161.1.3    zookeeper  Surpervisor   java-1.8
+    10.161.1.4    zookeeper  Surpervisor   java-1.8
+    10.161.1.5    zookeeper  Surpervisor   java-1.8
+
+1.zookeeper安装
+安装文档(略)
+
+2.安装Storm集群
+下载storm-1.2.2版本
+#wget https://archive.apache.org/dist/storm/apache-storm-1.2.2/apache-storm-1.2.2.tar.gz
+#tar zxvf apache-storm-1.2.2.tar.gz
+#mv apache-storm-1.2.2 /opt/storm
+
+3.配置stom（所有的节点）,注意，每一行之前，都需要有一个空格
+#vim /opt/storm/conf/storm.yaml
+#### zookeeper IP
+ storm.zookeeper.servers:
+     - "10.161.1.3"
+     - "10.161.1.4"
+     - "10.161.1.5"
+#### 本地目录
+ storm.local.dir: "/data/storm/status"
+
+#### web ui的端口
+ ui.port: 9090
+#### supervisor 运行的端口
+ supervisor.slots.ports:
+     - 6700
+     - 6701
+     - 6702
+     - 6703
+#### numbus HA, 会推选出一个leader
+ nimbus.seeds: ["10.161.1.1","10.161.1.2"]
+
+### supervisor节点，开启jmx参数
+ supervisor.childopts: -verbose:gc -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=9998
+
+4.启动
+nimbus节点(10.161.1.1、10.161.1.2)
+注意启动顺序
+# nohup  storm nimbus &> /var/log/nimbus.log &
+# nohup storm ui &> /var/log/ui.log &
+
+supervisor节点(10.161.1.3,10.161.1.4,10.161.1.5)
+# nohup storm supervisor &> /var/log/supervisor.log &
+
+6.通过web查看
+http://10.161.1.1:9090
+
+7 关闭storm相关进程
+7.1 关闭nimbus相关进程:
+kill `ps aux | egrep '(daemon\.nimbus)|(storm\.ui\.core)' |fgrep -v egrep | awk '{print $2}'`
+备注：这是在网上看到的，没有经过实际测试，有兴趣的朋友可以自己测试一下。
+7.2 干掉supervisor上的所有storm进程:
+kill `ps aux | fgrep storm | fgrep -v 'fgrep' | awk '{print$2}'`

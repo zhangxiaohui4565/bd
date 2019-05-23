@@ -1,0 +1,5 @@
+1、官方网站：http://spark.apache.org/streaming/
+
+2、第三方开源项目：http://spark.apache.org/third-party-projects.html
+
+3、示例程序：https://github.com/apache/spark/tree/master/examples

@@ -1,0 +1,41 @@
+/*!40019 SET @@session.max_insert_delayed_threads=0*/;
+/*!50003 SET @OLD_COMPLETION_TYPE=@@COMPLETION_TYPE,COMPLETION_TYPE=0*/;
+DELIMITER /*!*/;
+# at 4
+#180616 20:28:05 server batchId 1  end_log_pos 106   Start: binlog v 4, server v 5.1.73-log created 180616 20:28:05 at startup
+# Warning: this binlog is either in use or was not closed properly.
+ROLLBACK/*!*/;
+BINLOG '
+VQIlWw8BAAAAZgAAAGoAAAABAAQANS4xLjczLWxvZwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAABVAiVbEzgNAAgAEgAEBAQEEgAAUwAEGggAAAAICAgC
+'/*!*/;
+# at 106
+#180616 20:33:04 server batchId 1  end_log_pos 176   Query   thread_id=38    exec_time=0     error_code=0
+SET TIMESTAMP=1529152384/*!*/;
+SET @@session.pseudo_thread_id=38/*!*/;
+SET @@session.foreign_key_checks=1, @@session.sql_auto_is_null=1, @@session.unique_checks=1, @@session.autocommit=1/*!*/;
+SET @@session.sql_mode=0/*!*/;
+SET @@session.auto_increment_increment=1, @@session.auto_increment_offset=1/*!*/;
+/*!\C utf8 *//*!*/;
+SET @@session.character_set_client=33,@@session.collation_connection=33,@@session.collation_server=8/*!*/;
+SET @@session.lc_time_names=0/*!*/;
+SET @@session.collation_database=DEFAULT/*!*/;
+BEGIN
+/*!*/;
+# at 176
+# at 230
+#180616 20:33:04 server batchId 1  end_log_pos 230   Table_map: `wuchen`.`user` mapped to number 22
+#180616 20:33:04 server batchId 1  end_log_pos 312   Delete_rows: table batchId 22 flags: STMT_END_F
+
+BINLOG '
+gAMlWxMBAAAANgAAAOYAAAAAABYAAAAAAAEABnd1Y2hlbgAEdXNlcgAGCA8PDAwMBIABIQA8
+gAMlWxkBAAAAUgAAADgBAAAAABYAAAAAAAEABv/AAQAAAAAAAAAGAHd1Y2hlbgsxMzYxNjAxNjc1
+NUwYJqVaEgAATBgmpVoSAABMGCalWhIAAA==
+'/*!*/;
+# at 312
+#180616 20:33:04 server batchId 1  end_log_pos 339   Xid = 249
+COMMIT/*!*/;
+DELIMITER ;
+# End of log file
+ROLLBACK /* added by mysqlbinlog */;
+/*!50003 SET COMPLETION_TYPE=@OLD_COMPLETION_TYPE*/;

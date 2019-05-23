@@ -1,0 +1,7 @@
+target/
+checkpoint/
+log
+pid
+build
+/doc
+todo.md

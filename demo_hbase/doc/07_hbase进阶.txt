@@ -1,0 +1,55 @@
+### 关于WAL的说明：
+
+1、每个Region Server维护一个Hlog,而不是每个Region一个。
+   好处：这样不同region(来自不同table)的日志会混在一起，这样做的目的是不断追加单个 文件相对于同时写多个文件而言，可以减少磁盘寻址次数，因此可以提高对table的写性能。
+   坏处：如果一台region server下线，为了恢复其上的region，需要将region server上的log进行拆分，然后分发到其它region server上进行恢复。
+
+2、HLog文件就是一个普通的Hadoop Sequence File
+  > Sequence File 的Key是HLogKey对象，HLogKey中记录了写入数据的归属信息，除了table和region名字外，同时还包括 sequence number和timestamp，timestamp是”写入时间”，sequence number的起始值为0，或者是最近一次存入文件系统中sequence number。
+  > HLog Sequece File的Value是Hbase的KeyValue对象，即对应HFile中的KeyValue。
+
+
+###关于Region的说明：
+
+0、一个表一开始只有一个region，随着数据不断插入表，region不断增大，当增大到一个阀值的时候，Hregion就会 等分成   两个新的Hregion。
+1、HRegion是Hbase中  【分布式存储】和【负载均衡】的    最小单元
+2、最小单元就表示不同的Hregion可以分布在不同的HRegion server上，但一个HRegion是不会拆分到多个server上的。
+3、region是分布式存储的最小单元，但不是存储的最小单位。
+
+
+###关于列蔟：
+
+访问控制、磁盘和内存的使用统计都是在列族层面进行的。
+实际应用中，列族上的控制权限能帮助我们管理不同类型的应用：我们允许一些应用可以添加 新的基本数据、一些应用可以读取基本数据并创建继承的列族、一些应用则只允许浏览数据(甚至可能因为隐私的原因不能浏览所有数据)
+
+###关于版本：
+
+为了避免数据存在过多版本造成的的管理 (包括存贮和索引)负担，Hbase提供了两种数据版本回收方式，用户可以针对每个列族进行设置。
+1、保存数据的最后n个版本。
+2、保存最近一段时间内的版本(比如最近七天)。
+
+时间戳的类型是 64位整型。时间戳可以由Hbase(在数据写入时自动 )赋值，此时时间戳是精确到毫秒的当前系统时间。
+时间戳也可以由客户显式赋值。如果应用程序要避免数据版本冲突，就必须自己生成具有唯一性的时间戳。
+每个 cell中，不同版本的数据按照时间倒序排序，即最新的数据排在最前面。
+
+
+##LSM-Tree
+
+
+#HRegionServer中的组件
+
+
+##权限管理
+
+
+## HFile的结构(KeyValue，block的种类，bloom filter的原理)
+
+
+## HLog的结构
+
+## hbase:meta
+
+
+
+
+
