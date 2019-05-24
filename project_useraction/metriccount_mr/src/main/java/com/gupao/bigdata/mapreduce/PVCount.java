@@ -36,7 +36,7 @@ public class PVCount {
             String[] rawLogFields = value.toString().split("\t");
             // 拿到访问的url： 例如 http://opencart.gp-bd.com/index.php?route=product/product/review&product_id=41
             String accessURL = rawLogFields[1];
-            if (StringUtils.isNotEmpty(accessURL) && accessURL.contains("opencart.gp-bd.com")) {
+            if (StringUtils.isNotEmpty(accessURL) ) {
                 // 使用UrlEncoded进行解析product_id
                 //{product_id=41,  http://opencart.gp-bd.com/index.php?route=product/product/review}
                 MultiMap<String> values = new MultiMap<String>();
