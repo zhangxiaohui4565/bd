@@ -36,7 +36,7 @@ public class UVCount {
             String[] rawLogFields = value.toString().split("\t");
             // 获得productId
             String accessURL = rawLogFields[1];
-            if (StringUtils.isNotEmpty(accessURL) && accessURL.contains("opencart.gp-bd.com")) {
+            if (StringUtils.isNotEmpty(accessURL)) {
                 MultiMap<String> values = new MultiMap<String>();
                 UrlEncoded.decodeTo(accessURL, values, "UTF-8");
                 String productId = values.getValue("product_id", 0);
@@ -113,6 +113,7 @@ public class UVCount {
         job1.setOutputValueClass(NullWritable.class);
         FileInputFormat.addInputPath(job1, new Path(args[0]));
         FileOutputFormat.setOutputPath(job1, new Path(args[1]));
+        // 进行项目启动
         job1.waitForCompletion(true);
 
         // 配置Job2，Job2的输入数据是Job1的输出
