@@ -30,7 +30,7 @@ public class PVCount {
 
         private final static IntWritable one = new IntWritable(1);
         private Text word = new Text();
-
+        // key 表示偏移量   value表示每行的内容
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             // 使用tab分隔符对nginx的日志进行切分
             String[] rawLogFields = value.toString().split("\t");
@@ -38,6 +38,7 @@ public class PVCount {
             String accessURL = rawLogFields[1];
             if (StringUtils.isNotEmpty(accessURL) && accessURL.contains("opencart.gp-bd.com")) {
                 // 使用UrlEncoded进行解析product_id
+                //{product_id=41,  http://opencart.gp-bd.com/index.php?route=product/product/review}
                 MultiMap<String> values = new MultiMap<String>();
                 UrlEncoded.decodeTo(accessURL, values, "UTF-8");
                 String productId = values.getValue("product_id", 0);
@@ -53,10 +54,19 @@ public class PVCount {
 
     /**
      * PV统计Reducer方法
+     * 参数类型   输入k,v 输出k,v
      * */
     public static class PVReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
         private IntWritable result = new IntWritable();
 
+        /**
+         *
+         * @param key   根据key进行partition
+         * @param values  同一个key的值的集合
+         * @param context
+         * @throws IOException
+         * @throws InterruptedException
+         */
         public void reduce(Text key, Iterable<IntWritable> values,
                            Context context) throws IOException, InterruptedException {
             // 按照WordCount思路对相同key的value进行累加即可获得页面点击次数
@@ -65,6 +75,7 @@ public class PVCount {
                 sum += val.get();
             }
             result.set(sum);
+            // 进行输出  与python写的print 一致
             context.write(key, result);
         }
     }
