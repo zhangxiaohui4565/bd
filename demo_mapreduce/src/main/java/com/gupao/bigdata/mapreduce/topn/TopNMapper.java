@@ -8,7 +8,11 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.log4j.Logger;
 
 public class TopNMapper extends Mapper<Object, Text, NullWritable, Text> {
-
+    /**
+     * NullWritable是Writable的一个特殊类，实现方法为空实现，不从数据流中读数据，也不写入数据，只充当占位符，
+     * 如在MapReduce中，
+     * 如果你不需要使用键或值，你就可以将键或值声明为NullWritable,NullWritable是一个不可变的单实例类型。
+     */
     private int N;
     private PriorityQueue<Item> priorityQueue = new PriorityQueue();
 
@@ -29,9 +33,12 @@ public class TopNMapper extends Mapper<Object, Text, NullWritable, Text> {
         Long count = Long.parseLong(words[1]);
         Item item = new Item(count, value.toString());
         if (priorityQueue.size() < N || count > priorityQueue.peek().getCount()) {
+            //添加元素
             priorityQueue.offer(item);
         }
         if (priorityQueue.size() > N) {
+            // 取出元素不进行删除  peek()
+            // 取出元素并删除
             priorityQueue.poll();
         }
     }
