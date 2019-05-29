@@ -17,7 +17,14 @@
         <repository>
             <id>cloudera</id>
             <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
+
     </repositories>
 
     <dependencies>
@@ -25,7 +32,7 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
             <!-- 这里要设置成安装的hadoop版本 -->
-            <version>2.6.0-cdh5.8.5</version>
+            <version>2.6.0-cdh5.10.0</version>
             <!--<scope>provided</scope>-->
         </dependency>
 
@@ -33,7 +40,7 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-core</artifactId>
             <!-- 这里要设置成安装的hadoop版本 -->
-            <version>2.6.0-mr1-cdh5.8.5</version>
+            <version>2.6.0-mr1-cdh5.10.0</version>
             <!--<scope>provided</scope>-->
         </dependency>
 
@@ -41,7 +48,7 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <!-- 这里要设置成安装的hadoop版本 -->
-            <version>2.6.0-cdh5.8.0</version>
+            <version>2.6.0-cdh5.10.0</version>
             <!--<scope>provided</scope>-->
         </dependency>
 
