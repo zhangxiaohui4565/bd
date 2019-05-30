@@ -16,7 +16,7 @@ sudo -u hdfs hadoop fs -copyFromLocal /home/gupao/data/magicwind/access.log /gp/
 hadoop fs -ls /gp/hive/log
 ```
 
-2. 建立Hive外部表对应于日志文件
+2. 建立Hive外部表对应于日志文件  使用正则表达式的方式来格式化内存结构 最终形成表结构
 ```sql
 CREATE EXTERNAL TABLE access_log(
     ip STRING,
