@@ -6,19 +6,19 @@
 
 1. 将日志文件传到HDFS
 ```bash
-sudo -u hdfs hadoop fs -mkdir /user/hive/warehouse/original_access_logs_${date}
+sudo -u hdfs hadoop fs -mkdir /gp/hive/log
 
-sudo -u hdfs hadoop fs -copyFromLocal /home/gupao/data/magicwind/access.log /user/hive/warehouse/original_access_logs_${date}
+sudo -u hdfs hadoop fs -copyFromLocal /home/gupao/data/magicwind/access.log /gp/hive/log
 ```
 
 检查文件是否已正确拷贝
 ```bash
-hadoop fs -ls /user/hive/warehouse/original_access_logs_${date}
+hadoop fs -ls /gp/hive/log
 ```
 
 2. 建立Hive外部表对应于日志文件
 ```sql
-CREATE EXTERNAL TABLE mw_intermediate_access_logs_${date} (
+CREATE EXTERNAL TABLE access_log(
     ip STRING,
     request_time STRING,
     method STRING,
@@ -32,12 +32,12 @@ ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES (
     'input.regex' = '([^ ]*) - - \\[([^\\]]*)\\] "([^\ ]*) ([^\ ]*) ([^\ ]*)" (\\d*) (\\d*) "([^"]*)" "([^"]*)"',
     'output.format.string' = "%1$$s %2$$s %3$$s %4$$s %5$$s %6$$s %7$$s %8$$s %9$$s")
-LOCATION '/user/hive/warehouse/original_access_logs_${date}';
+LOCATION '/gp/hive/log';
 ```
 
 3. 将TEXT表转换为PARQUET表
 ```sql
-CREATE TABLE mw_tokenized_access_logs_${date} (
+CREATE TABLE pa_access_log (
     ip STRING,
     request_time STRING,
     method STRING,
@@ -47,13 +47,13 @@ CREATE TABLE mw_tokenized_access_logs_${date} (
     code2 STRING,
     dash STRING,
     user_agent STRING,
-    timestamp int)
-STORED AS PARQUET
+    `timestamp` int)
+STORED AS PARQUET;
+
+
 --LOCATION '/user/hive/warehouse/tokenized_access_logs_${date}';
 
-ADD JAR /opt/cloudera/parcels/CDH/lib/hive/lib/hive-contrib.jar;
-
-INSERT OVERWRITE TABLE mw_tokenized_access_logs_${date}
+INSERT OVERWRITE TABLE pa_access_log
 SELECT 
   ip,
   from_unixtime(unix_timestamp(request_time, 'dd/MMM/yyyy:HH:mm:ss z'), 'yyyy-MM-dd HH:mm:ss z'),
@@ -65,7 +65,7 @@ SELECT
   dash,
   user_agent,
   unix_timestamp(request_time, 'dd/MMM/yyyy:HH:mm:ss z')
-FROM mw_intermediate_access_logs_${date};
+FROM access_log;
 ```
 
 注意观察Hive Job拆分成Map Reduce Job并执行
