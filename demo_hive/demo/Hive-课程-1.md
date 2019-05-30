@@ -75,10 +75,10 @@ FROM access_log;
 4. 统计最多访问的5个IP
 ```sql
 select ip, count(*) cnt
-from mw_tokenized_access_logs_${date}
+from pa_access_log
 group by ip
 order by cnt desc
-limit 5
+limit 5;
 ```
 
 ## 演示2
