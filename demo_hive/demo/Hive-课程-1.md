@@ -173,6 +173,7 @@ STORED AS PARQUET;
 会话分析SQL
 
 ```sql
+-- with 表示创建临时表，后面的查询可以使用，功能类似使用子查询
 -- 找到会话的边界
 -- 通过比较当前记录和前一条记录的timestamp字段, 如果间隔时间超过5分钟（假设），则赋值为1，否则为0
 with session_start as (
@@ -216,4 +217,4 @@ insert overwrite table mw_sessions
 select * from t_session_id;
 
 select session_id, ip, user_agent, request_time, url from mw_sessions limit 10;
-```
+``` 
