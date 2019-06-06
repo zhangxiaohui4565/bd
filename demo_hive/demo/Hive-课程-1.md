@@ -15,7 +15,8 @@ sudo -u hdfs hadoop fs -copyFromLocal /home/gupao/data/magicwind/access.log /gp/
 ```bash
 hadoop fs -ls /gp/hive/log
 ```
-
+-- \d--->数字 ^表示非（）内对应列  \w 匹配字母或数字或下划线或汉字
+-- ^ 在[]中使用表示非的意思  在正常字符或者转译字符后面使用是限定开头。
 2. 建立Hive外部表对应于日志文件  使用正则表达式的方式来格式化内存结构 最终形成表结构
 ```sql
 CREATE EXTERNAL TABLE access_log(
@@ -217,4 +218,4 @@ insert overwrite table mw_sessions
 select * from t_session_id;
 
 select session_id, ip, user_agent, request_time, url from mw_sessions limit 10;
-``` 
+```
