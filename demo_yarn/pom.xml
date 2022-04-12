@@ -13,7 +13,7 @@
   <artifactId>demo_yarn</artifactId>
 
   <properties>
-    <hadoop.version>2.6.0</hadoop.version>
+    <hadoop.version>3.2.3</hadoop.version>
   </properties>
 
   <dependencies>
